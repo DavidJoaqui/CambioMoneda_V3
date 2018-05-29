@@ -7,10 +7,13 @@ package Control;
  */
 import MODELO.CambioMinimoFuncionAptitud;
 import static VISTA.VISTA.jPr;
+import static VISTA.VISTA.jTextArea1;
 import java.io.File;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import javax.swing.JTextArea;
+import javax.swing.border.Border;
 import org.jgap.Chromosome;
 import org.jgap.Configuration;
 import org.jgap.FitnessFunction;
@@ -30,7 +33,8 @@ import org.w3c.dom.Document;
  */
 public class CambioMinimo {
     /**
-* The total number of times we'll let the population evolve.
+* 
+El número total de veces que permitiremos que la población evolucione.
 */
 public static final int MAX_EVOLUCIONES_PERMITIDAS = 1500;
 public static String cadena="";
@@ -108,7 +112,7 @@ cadena+="\n"+"\t" + CambioMinimoFuncionAptitud.getNumeroDeCromososmasBilletesDeG
 cadena+="\n"+"\t" + CambioMinimoFuncionAptitud.getNumeroDeCromososmasBilletesDeGen(cromosomaMasApto, 4) + " Billete(s)   5 mil pesos";
 cadena+="\n"+"\t" + CambioMinimoFuncionAptitud.getNumeroDeCromososmasBilletesDeGen(cromosomaMasApto, 5) + " Billete(s)   2 mil pesos";
 cadena+="\n"+"\t" + CambioMinimoFuncionAptitud.getNumeroDeCromososmasBilletesDeGen(cromosomaMasApto, 6) + " Billete(s)     mil pesos";
-cadena+="\n"+"Para un total de "+ CambioMinimoFuncionAptitud.montoCambioBillete(cromosomaMasApto) + " pesos " + CambioMinimoFuncionAptitud.getNumeroTotalMonedas(cromosomaMasApto) + " Billetes.";
+cadena+="\n"+"Para un total de "+ CambioMinimoFuncionAptitud.montoCambioBillete(cromosomaMasApto) + " pesos " + CambioMinimoFuncionAptitud.getNumeroTotalBilletes(cromosomaMasApto) + " Billetes.";
 }else{
     JOptionPane.showMessageDialog(null,"No se encontro cromosoma más apto");
 }
@@ -129,7 +133,7 @@ XMLManager.writeFile(xmlDoc, new File("PoblacionCambioMinimo.xml"));
 
 public static void inicio(int monto) {
         //Creamos un Thread para mejorar el ejemplo        
-        
+        jPr.setVisible(true);
         try {
 
             CambioMinimo.calcularCambioMinimo(monto);
@@ -141,10 +145,13 @@ public static void inicio(int monto) {
                 public void run() {
                     //Permite mostrar el valor del progreso
                     jPr.setStringPainted(true);
+                    Border border = BorderFactory.createTitledBorder("Cargando...");
+                    jPr.setBorder(border);
+                    
                     int x = 1;
                     //Utilizamos un while para emular el valor mínimo y máximo
                     //En este caso 0 - 100
-                    while (x <= MAX_EVOLUCIONES_PERMITIDAS) {
+                    while (x <= (MAX_EVOLUCIONES_PERMITIDAS)) {
                         //Asignamos valor a nuestro JProgressBar por cada ciclo del bucle                        
                         jPr.setValue(x);   
                         //Valor que se mostrará en el JTextArea
@@ -161,18 +168,18 @@ public static void inicio(int monto) {
                 }
 
             });
-            //Se ejecuta el Thread
-           
-            t.start();
-            VISTA.VISTA.jTextArea1.setText(CambioMinimo.cadena);
+            //Se ejecuta el Thread                    
+            t.start();                     
             
+            jTextArea1.setText(CambioMinimo.cadena);            
+            jTextArea1.setVisible(true);
             CambioMinimo.cadena = "";
             Configuration.reset();
-
+            
         } catch (Exception e) {
             System.out.println("Error...\n" + e);
         }
-    }
-
+    
+}
 }
 
