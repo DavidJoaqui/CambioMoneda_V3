@@ -39,7 +39,7 @@ public static String cadena="";
 * imprime por pantalla
 *
 * @param Monto
-* Monto que se desea descomponer en la menor cantidad de monedas
+* Monto que se desea descomponer en la menor cantidad de billetes
 * posibles
 * @throws Exception
 *
@@ -112,14 +112,6 @@ cadena+="\n"+"Para un total de "+ CambioMinimoFuncionAptitud.montoCambioBillete(
     JOptionPane.showMessageDialog(null,"No se encontro cromosoma más apto");
 }
 }
-/**
-* Metodo principal: Recibe el monto en dinero por parametro para determinar
-* la cantidad minima de monedas necesarias para formarlo
-*
-*
-     * @param Poblacion
-     * @throws java.lang.Exception
-*/
 
 // ---------------------------------------------------------------------
 // Este metodo permite guardar en un xml la ultima poblacion calculada
