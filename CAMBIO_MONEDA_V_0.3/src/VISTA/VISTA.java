@@ -431,10 +431,8 @@ public class VISTA extends javax.swing.JFrame {
             jTextField1.setText("");
         } else {
             try {
-                CambioMinimo.calcularCambioMinimo(dinero);
-                jTextArea1.setText(CambioMinimo.cadena);
-                CambioMinimo.cadena = "";
-                Configuration.reset();
+                CambioMinimo.inicio(dinero);                             
+                
             } catch (Exception ex) {
                 Logger.getLogger(VISTA.class.getName()).log(Level.SEVERE, null, ex);
             }
