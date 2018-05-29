@@ -5,12 +5,11 @@
  */
 package VISTA;
 
-import MODELO.CambioMinimo;
+import Control.CambioMinimo;
 import MODELO.CambioMinimoFuncionAptitud;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JProgressBar;
 import org.jgap.Configuration;
 
 /**
