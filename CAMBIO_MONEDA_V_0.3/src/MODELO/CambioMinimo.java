@@ -25,7 +25,7 @@ import org.jgap.xml.XMLManager;
 import org.w3c.dom.Document;
 /**
  *
- * @author HUAWEI-ADMIN
+ * @author FUNDACION UNIVERSITARIA DE POPAYÁN
  */
 public class CambioMinimo {
     /**
