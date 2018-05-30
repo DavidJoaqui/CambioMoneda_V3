@@ -71,12 +71,12 @@ conf.setFitnessFunction(miFuncion);
 // --------------------------------------------------------------
 Gene[] sampleGenes = new Gene[7];
 sampleGenes[0] = new IntegerGene(conf, 0, Math.round(CambioMinimoFuncionAptitud.MAX_MONTO/100000)); // billete 100000 mil pesos
-sampleGenes[1] = new IntegerGene(conf, 0, 10); // billete 50 milpesos
-sampleGenes[2] = new IntegerGene(conf, 0, 10); // billete 20 mil pesos
-sampleGenes[3] = new IntegerGene(conf, 0, 10); // billete 10 mil pesos
-sampleGenes[4] = new IntegerGene(conf, 0, 10); // billete  5 mil pesos
-sampleGenes[5] = new IntegerGene(conf, 0, 10); // billete  2 mil pesos
-sampleGenes[6] = new IntegerGene(conf, 0, 10); // billete  1 mil pesos
+sampleGenes[1] = new IntegerGene(conf, 0, 6); // billete 50 milpesos
+sampleGenes[2] = new IntegerGene(conf, 0, 6); // billete 20 mil pesos
+sampleGenes[3] = new IntegerGene(conf, 0, 6); // billete 10 mil pesos
+sampleGenes[4] = new IntegerGene(conf, 0, 6); // billete  5 mil pesos
+sampleGenes[5] = new IntegerGene(conf, 0, 6); // billete  2 mil pesos
+sampleGenes[6] = new IntegerGene(conf, 0, 6); // billete  1 mil pesos
 IChromosome sampleChromosome = new Chromosome(conf, sampleGenes);
 conf.setSampleChromosome(sampleChromosome);
 // Por ultimo se debe indicar el tamaño de la poblacion en la
